@@ -44,6 +44,8 @@ public:
 //BETTER (IF ASKED FOR CONSTANT SPACE)
 //SWAPPING
 /*
+    https://lh5.googleusercontent.com/QEDFSF6FON5z-1saYsfMuozjyeZssgiue_hp5IbwskRVVpDzfrrsS-GmwPIweLgg1F6Ju6miqh5RY0Q1T45MJrcIkEyfkIR08w_j_r8zUuViOo-0NRehhGp5K2g_iYLoVRoetACy
+
     This approach utilzes the fact that both arrays are sorted.
     swap with the first element of second array in case its smaller than the encountered element of first array,
     sort the second array (by insertion of the first element at correct place)
@@ -92,6 +94,8 @@ public:
 //OPTIMAL
 //GAP METHOD
 /*
+    https://lh3.googleusercontent.com/lyvwTvrtYnwEilU0AZ-PNNVzUNXV72xqmq6UmSnfMCE5GfZXo1pl6EAYTE6RFPLvugNeytrAiM1i6I-E8bTl8Y-VTT-uzJ2VQ6FDZE6-uq-sp9bMrIvizxGqvZeIi4hB6LiGGijL
+    
     create a gap = ceil((m + n) /2)
     compare elements spaced by 'gap'
     after one entire iteration, reduce the gap by half
