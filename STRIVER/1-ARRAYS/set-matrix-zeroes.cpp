@@ -154,22 +154,16 @@ public:
             {
                 for(int r = 0; r < n; r++)
                 {
-                    for(int c = 0; c < m; c++)
-                    {
                         a[r][0] = 0;
-                    }
                 }
             }    
         //if firstRowZero is true, that means any element in first row was zero
             if(firstRowZero == true)
             {
-                for(int r = 0; r < n; r++)
-                {
-                    for(int c = 0; c < m; c++)
+                for(int c = 0; c < m; c++)
                     {
                         a[0][c] = 0;
                     }
-                }
             }
     }
 };
