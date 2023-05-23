@@ -5,36 +5,36 @@
 //till we this char, calc. len, insert this char in map
 
 
-// class Solution {
-// public:
-//     int lengthOfLongestSubstring(string s) {
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
         
-//         unordered_set<char> map;
-//         int i = 0, j = 0;
-//         int maxlen = 0;
-//         int len = 0;
-//         while(j < s.length() and i <= j)
-//         {
-//             // if(map.find(s[j]) == map.end()) simply calculate substr length and insert char
+        unordered_set<char> map;
+        int i = 0, j = 0;
+        int maxlen = 0;
+        int len = 0;
+        while(j < s.length() and i <= j)
+        {
+            // if(map.find(s[j]) == map.end()) simply calculate substr length and insert char
             
-//             //else, erase all elements of substr from set, till this char dne in set
-//             //insert, calc length of new substr
-//             while(map.find(s[j]) != map.end())
-//             {
-//                     map.erase(s[i]);
-//                     i++;
-//             }
+            //else, erase all elements of substr from set, till this char dne in set
+            //insert, calc length of new substr
+            while(map.find(s[j]) != map.end())
+            {
+                    map.erase(s[i]);
+                    i++;
+            }
             
-//             map.insert(s[j]);
-//             len = j - i + 1;
+            map.insert(s[j]);
+            len = j - i + 1;
             
-//             maxlen = max(maxlen, len);
-//             j++;
-//         }
+            maxlen = max(maxlen, len);
+            j++;
+        }
         
-//         return maxlen;
-//     }
-// };
+        return maxlen;
+    }
+};
 
 
 class Solution {
