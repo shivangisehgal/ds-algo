@@ -13,6 +13,9 @@ node* detectCycle(node* head) {
     return NULL;
 }
 
+//https://jamboard.google.com/d/18E7Ci4EZYGACoIImIO6jwriTrM_70Vu1-hAQuK8Y18I/edit?usp=sharing
+
+
 //OPTIMAL
 //let l be length of non-looped list and m be distance in loop from start of loop
 //we know, Df = 2 * Ds
