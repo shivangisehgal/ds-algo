@@ -1,23 +1,28 @@
+//NOTE, QUESTION ASKS FOR RETURNING SECOND MIDDLE IN CASE OF EVEN LIST
+
 //BRUTE
 //TC: O(N) 
 //SC: O(1)
 class Solution {
 public:
-	ListNode* middleNode(ListNode* head) {
-    	int n = 0;
-    	ListNode* temp = head;
-    	while(temp) {
-        	n++;
-        		temp = temp->next;
-    	}
-   	 
-    	temp = head;
-   	 
-    	for(int i = 0; i < n / 2; i++) {
-        		temp = temp->next;
-    	}
-   	 
-    	return temp;
+	ListNode* middleNode(ListNode* head) 
+	{
+		int n = 0;
+		ListNode* temp = head;
+		while(temp) 
+		{
+			n++;
+			temp = temp->next;
+		}
+
+		temp = head;
+
+		for(int i = 0; i < n / 2; i++) 
+		{
+			temp = temp->next;
+		}
+
+		return temp;
 	}
 };
 
