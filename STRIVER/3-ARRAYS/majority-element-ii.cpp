@@ -39,31 +39,33 @@ public:
         
       for (i = 0; i < sz; i++) 
       {
-        if (nums[i] == num1)
-          count1++;
-          
-        else if (nums[i] == num2)
-          count2++;
-          
-        else if (count1 == 0) 
-        {
-          num1 = nums[i];
-          count1 = 1;
-        } 
-          
-        else if (count2 == 0) 
-        {
-          num2 = nums[i];
-          count2 = 1;
-        } 
         
+          if (count1 == 0 && el2 != nums[i]) 
+          {
+                count1 = 1;
+                num1 = nums[i];
+           }
+          
+        else if (count2 == 0 && num1 != nums[i]) 
+        {
+            count2 = 1;
+            num2 = nums[i];
+        }
+          
+        else if (nums[i] == num1) 
+            count1++;
+          
+        else if (nums[i] == el2) 
+            count2++;
+          
         else 
         {
-          count1--;
-          count2--;
+            count1--, 
+            count2--;
         }
           
       }
+        
       //this will give us two elements that occur more than others, but it might not be that they occur more than n / 3 times
       vector <int> ans;
       count1 = count2 = 0;
