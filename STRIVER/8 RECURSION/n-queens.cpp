@@ -1,6 +1,10 @@
 //BRUTE
-//TC: Exponential. since we are trying out all ways, to be precise it is O(N! * N).
-//SC: O(N^2) 
+//Create a vector<string> which is an nxn matrix. Use backtracking to choose a place to put Q, for each column
+//Make sure that place is safe to put Q by making a function which checks the edge cases.
+
+// TC: Exponential in nature, since we are trying out all ways. Nearly O(N! * N) 
+// SC: O(N^2)
+
 class Solution {
 public:
     
@@ -9,15 +13,15 @@ public:
         //a queen can attack in 8 directions
         //since we're calling this before inserting
         //that means, there won't be queen as of now that will be ahead of it in the board
-        //ie, upper right diagonal, lower right diagonal, right and down are not needed to be checked.
+        //ie, diagonal-up forward, diagonal-down forward, forward and down are not needed to be checked.
         //and since, queen is only being placed in the column once, we need not check for UP as well
-        //so we only need to check whether there is a queen on any element on LEFT, UPPER LEFT DIAGONAL,  LOWER LEFT DIAGONAL
+        //so we only need to check whether there is a queen on any element on STRAGHT BACKWARD, DIAGONAL UP BACKWARD, DIAGONAL DOWN BACKWARD
         
         
         int dupRow = row;
         int dupCol = col;
         
-        //STRAGHT LEFT
+        //STRAIGHT BACKWARD
         while(col > 0)
         {
             col--;
@@ -28,7 +32,7 @@ public:
         
         col = dupCol;
         
-        //UPPER LEFT DIAGONAL
+        //DIAGONAL-UP BACKWARD
         while(row > 0 and col > 0)
         {
             row--;
@@ -41,7 +45,6 @@ public:
         row = dupRow;
         col = dupCol;
         
-      //LOWER LEFT DIAGONAL
         while(row < n - 1 and col > 0)
         {
             row++;
