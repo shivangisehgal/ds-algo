@@ -3,7 +3,7 @@
 //       M is the number
 //       d is the decimal places allowed
 
-
+//SC: O(1)
 class Solution{
 	public:
 	
