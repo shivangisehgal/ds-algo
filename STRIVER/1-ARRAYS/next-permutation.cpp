@@ -3,7 +3,7 @@
 // Search input from all possible permutations.
 // Print the next permutation present right after it.
 //TC: O(N!xN)
-//SC: O(1) not considering stack space
+//SC: O(1) not considering stack space.
 
 
 
