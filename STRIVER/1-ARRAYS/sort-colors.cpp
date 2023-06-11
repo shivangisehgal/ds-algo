@@ -1,3 +1,7 @@
+//BRUTE: SORT //TC: O(NlogN) //SC: O(1)
+//BETTER: COUNT FREQ // TC: O(N + N) //SC: O(3) 
+
+//OPTIMAL
 //DNF SORT
 /*
 we have three partions, left of i should contain 0s, right of k should contain 2s.
