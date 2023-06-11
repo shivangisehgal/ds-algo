@@ -1,5 +1,26 @@
+
 AKA (How far or close the array is from being sorted)
-  
+
+//BRUTE
+//Nested loop.
+//TC: O(N^2)
+//SC: O(1)
+
+int getInversions(int * A, int n) {
+  int count = 0;
+  for (int i = 0; i < n; ++i) {
+    for (int j = i + 1; j < n; ++j) {
+      if (A[i] > a[j]) {
+        ++count;
+      }
+    }
+  }
+  return count;
+}
+
+
+//OPTIMAL
+
 /*
 Refer this for solution:
 https://lh6.googleusercontent.com/DktuLgUJG45YBYqt4rRHCDQoFhktVT-_9dO7IjrRP-hsQZePEzktTPzq5Np6GUdu3wLyWsUSqfWwl7e_jRYCuiw83i8mq-0rUhrJ0SbUMNzPDaIwge2cpaVrbY41mB7YtiDCpZY3
