@@ -67,3 +67,37 @@ public:
         return {};
     }
 };
+
+
+// Store all pairs (can be same), in a sorted manner
+#include <bits/stdc++.h>
+
+vector<vector<int>> pairSum(vector<int> &arr, int s){
+   
+   unordered_map<int, int> hashMap;
+   vector<vector<int>> ans;
+
+   for(auto num : arr)
+   {
+      int count = hashMap[s - num];
+      
+      vector<int> v;
+      
+      if(num < s - num)
+         v = {num, s - num};
+      
+      else
+      v = {s - num, num};
+      
+      while(count--)
+         ans.push_back(v);
+         
+      hashMap[num]++;
+      
+   }
+
+   sort(ans.begin(), ans.end());
+   
+   return ans;
+   
+}
