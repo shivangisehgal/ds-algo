@@ -1,7 +1,7 @@
 //BRUTE
 //SORT (IF NOT SORTED) AND USE TEMPORARY ARRAY
-//TC: O(NlogN)
-//SC: O(N)
+//TC: O((M+n)log(M+N)) or O(M + N)
+//SC: O(M + N)
 
 class Solution {
 public:
