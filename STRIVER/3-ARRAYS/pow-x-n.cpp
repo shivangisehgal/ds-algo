@@ -28,3 +28,23 @@ public:
         return ans;
     }
 };
+
+//MODULAR EXPONENTIATION
+
+#include <bits/stdc++.h>
+
+int modularExponentiation(int x, int n, int m) 
+{
+	long long ans = 1;
+
+	while(n)
+	{
+		if(n & 1)
+			ans = (ans % m) * (x % m);
+		
+		x = (1LL* x * x)% m;
+		n = n >> 1;
+	}
+
+	return ans % m;
+}
