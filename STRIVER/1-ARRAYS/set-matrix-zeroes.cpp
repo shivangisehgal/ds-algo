@@ -149,7 +149,8 @@ public:
                 }
             }
         
-        //if a[0][0], that means any element in first col was zero
+        //if a[0][0], that means any element in first col was zero 
+        //NOTE, THIS SHOULD COME FIRST, OR ELSE, IF FIRST ROW IS ZERO, IT'LL MAKE MATRIX[0][0] AS ZERO
             if(a[0][0] == 0)
             {
                 for(int r = 0; r < n; r++)
