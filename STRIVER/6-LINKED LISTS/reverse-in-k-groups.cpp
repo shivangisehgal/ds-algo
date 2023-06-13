@@ -1,9 +1,9 @@
 //RECURSIVE SOLUTION - IS NOT SPACE OPTIMIZED
 
 /*
-  reverse the first sub-list of size k. (assign new_head for this sublist (from head to temp) (because hamein purane head ki location ki zaroorat hogi)
-  purana head would now point to the last element of this reversed sub-list.
-  so now, next of this head should point to the head of next reversed sublist (hence recursive call)
+  reverse the first sub-list of size k. (assign new_head for this sublist (from START to END): reverseFrom(head, temp)
+  START would now be the last element of this reversed sub-list: head
+  so now, next of this node should point to the head of next reversed sublist (hence recursive call): head->next = reverseKGroup(head->next, k);
   return the head of the first sublist (new_head)
 */
 
@@ -13,16 +13,15 @@
 class Solution {
 public:
     
-    ListNode* reverseFrom(ListNode* first, ListNode* last)
+    ListNode* reverseFrom(ListNode* start, ListNode* end)
     {
-        ListNode* prev = NULL;
         ListNode* end_next;
         
-        if(last != NULL)
-           end_next = last->next;
+        if(end != NULL)
+           end_next = end->next;
         
-        prev = end_next;
-        ListNode* curr = first;
+        ListNode* prev = end_next;
+        ListNode* curr = start;
         ListNode* n;
         
         
