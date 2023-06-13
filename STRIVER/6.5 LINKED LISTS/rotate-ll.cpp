@@ -43,15 +43,13 @@ public:
         ListNode* temp = head;
         int length = 1;
         
-        while(temp->next->next != NULL) 
+        while(temp->next != NULL) 
         {
             length++;
             temp = temp->next;
         }
         
-        length++;
-        
-        ListNode* last = temp->next;
+        ListNode* last = temp;
         
         k = k % length;
         
