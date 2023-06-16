@@ -1,5 +1,5 @@
 //BRUTE
-//Make temporary array of all sorted elements, find its median
+//Make temporary array of all sorted elements, find its median.
 //TC: O(M + N)
 //SC: O(M + N)
 
