@@ -29,6 +29,9 @@ public:
 */
 //TC: O(N)
 //SC: O(1)
+// example tc, explaining why we need to check
+// 4 5 6 8 4 5 7 4 5 7
+
 
 class Solution {
 public:
