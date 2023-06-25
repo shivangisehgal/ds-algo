@@ -41,31 +41,31 @@ class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
         
-        unordered_map<char, int> map;
-        int i = 0, j = 0;
-        int maxlen = 0;
-        int len = 0;
-        while(j < s.length() and i <= j)
+        int start = 0, end = 0;
+        int len = 0, maxlen = 0;
+        
+        unordered_map<char, int> hashMap;
+        
+        while(end < s.length() and start <= end)
         {
-            // if(map.find(s[j]) == map.end()) simply calculate substr length and insert char
-            
-            //else, erase all elements of substr from set, till this char dne in set
-            //insert, calc length of new substr
-            if(map.find(s[j]) != map.end())
+            //repeated and is in current substring
+            if(hashMap.find(s[end]) != hashMap.end() && start <= hashMap[s[end]])
             {
-                //if(i > map[s[j]]) //lies before substr, don't do anything    
-                if(i <= map[s[j]])
-                {
-                     i = map[s[j]] + 1;   //move to the next index from where this char last appeared
-                }
+                start = hashMap[s[end]] + 1; //start of new substr from the next element of the index where it first occured
             }
             
-            map[s[j]] = j; //add/update position of char
-            len = j - i + 1; //calc len of substr
+            hashMap[s[end]] = end; //insert or update index
             
+            len = end - start + 1;
             maxlen = max(maxlen, len);
-            j++;
+            
+            end++;
         }
         
         return maxlen;
     }
+};
+
+
+
+
