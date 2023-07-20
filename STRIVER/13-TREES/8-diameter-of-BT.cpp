@@ -1,5 +1,6 @@
 //Create a max variable.
-//Diameter of any subtree CAN be the sum of its left height and right height.
+//diameter is defined as destance between any two nodes, so for 2 adjacent nodes, diameter would be 1
+//Diameter of any subtree can be the sum of its (left height and right height + 1) - 1 => +1 contributed by the node itself.
 //We have to find out the maximum (left height + right Height) out of all subtrees inside the tree.
 
 //TC: O(N)
@@ -17,7 +18,7 @@ public:
         int lh = height(root->left, diameter);
         int rh = height(root->right, diameter);
         
-        diameter = max(diameter, lh + rh);
+        diameter = max(diameter, 1 + lh + rh - 1);
         
         return (1 + max(lh, rh));
     }
