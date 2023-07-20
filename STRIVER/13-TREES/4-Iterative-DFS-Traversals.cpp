@@ -85,15 +85,11 @@ public:
                 temp = temp->left;
             }
             
-            else
+            else //no left child -> print root, go one step right.
             {
                 
-                if(s.empty())
+                if(s.empty()) //current is null and stack is empty => tree traversed fully
                     break;
-                
-                //reached a point, where there is no left
-                //either leaf -> L
-                //or only right subtree exists -> Root
                 
                 temp = s.top();
                 s.pop();
@@ -163,6 +159,9 @@ public:
 };
 
 //POSTORDER: L R Root
+
+// https://drive.google.com/file/d/1SDV9OhA3S-nVuCJBAv459juSWrFv2Pfx/view?usp=drive_link
+
 
 //Method 2: Using only one stack
 //Keep going to the left (and pushing in stack)/
