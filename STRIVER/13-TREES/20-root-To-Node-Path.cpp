@@ -1,3 +1,4 @@
+//not on LC
 //Perform preorder
 //if both left and right are false, that means x is not present in both subtrees, so remove this element 
 //else, it could be, check for left and right, if any is true. so we don't have to remove it.
