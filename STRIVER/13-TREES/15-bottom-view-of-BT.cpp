@@ -1,3 +1,5 @@
+//not on LC
+
 //TC: O(N + N)
 //SC: O(N)
 
