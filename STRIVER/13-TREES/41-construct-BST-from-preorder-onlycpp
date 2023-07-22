@@ -1,0 +1,31 @@
+//Only an upperbound needs to be considered
+//create a node, 
+//its left will have an upper bound as value of this (parent) node
+//its right will have an upper bound as that of this node itself
+//in case not followed, left, right, or both will be null.
+
+//TC: O(N)
+//SC: O(H) => O(N)
+
+class Solution {
+public:
+    
+    TreeNode* buildBST(vector<int>& preorder, int& i, int maxVal)
+    {
+        if(i >= preorder.size() || preorder[i] >= maxVal)
+            return NULL;
+        
+        TreeNode* root = new TreeNode(preorder[i++]);
+        root->left = buildBST(preorder, i, root->val);
+        root->right = buildBST(preorder, i, maxVal);
+        
+        return root;
+    }
+    
+    TreeNode* bstFromPreorder(vector<int>& preorder) {
+        int i = 0;
+        int maxVal = INT_MAX;
+        
+        return buildBST(preorder, i, maxVal);
+    }
+};
