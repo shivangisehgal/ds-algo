@@ -1,6 +1,41 @@
 //use a queue to first store the starting node
 //for each front element of the queue, push all its neighbours inside the queue if they havent been visited yet
 
+ //TC: O(N) + O(2E) (queue would run n times, and the for loop will run in for a net of all neighbours (= 2E)
+//SC: O(N) 
+
+ int startVertex = 0;
+
+    vector<int> ans;
+    queue<int> q;
+    int visited[n] = {0};
+    
+    q.push(startVertex);
+    visited[startVertex] = 1;
+    
+    while(!q.empty())
+    {
+        int v = q.front();
+        ans.push_back(v);
+        q.pop();
+
+        //push all neighbours of v
+        for(auto neighbor : adjList[v])
+        {
+            if(!visited[neighbor])
+            {
+                q.push(neighbor);
+                visited[neighbor] = 1;
+            }
+        }
+    }
+
+
+
+
+
+
+//not on LC
 vector<int> BFS(int vertex, vector<pair<int, int>> edges)
 {
     // Write your code here
