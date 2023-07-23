@@ -80,14 +80,24 @@ int main()
 //use vector<pair<int, int>> instead of vector<int>  in the list.
 
 //Codestudio:
-int countingGraphs(int n)
-{
-    //max edges = nC2
-    int maxEdges = (n * (n - 1)) / 2;
-    
-    //for each edge, we can have two options - euthe have or not have
-    //so each edge change, can result in unique graph
-    //2*2*2.......maxEdges times
+#include <bits/stdc++.h> 
+vector < vector < int >> printAdjacency(int n, int m, vector < vector < int >> & edges) {
+    // Write your code here.
+    vector<vector<int>> adjList(n);
 
-    return pow(2, maxEdges);
+    //question requires us to store the node as well
+    for(int i = 0; i < n; i++)
+        adjList[i].push_back(i);
+
+    for(int i = 0; i < m; i++)
+    {
+        int u = edges[i][0];
+        int v = edges[i][1];
+
+        adjList[u].push_back(v);
+        adjList[v].push_back(u);
+    }
+
+    return adjList;
 }
+
