@@ -28,3 +28,64 @@ int maximumNonAdjacentSum(vector<int> &nums){
     
     return rec(nums.size() - 1, dp, nums);
 }
+
+
+//Tab
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        
+        int n = nums.size();
+        
+        vector<int> dp(n, -1);
+
+        for(int i = 0; i < n; i++)
+            dp[i] = -1;
+        
+        dp[0] = nums[0];
+        
+        for(int i = 1; i < n; i++)
+        {
+            int l = nums[i];
+            
+            if(i > 1)
+                l += dp[i - 2];
+            
+            int r = dp[i - 1];
+            
+            dp[i] = max(l, r);
+        }
+        
+        return dp[n - 1];
+    }
+};
+
+//space opt
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        
+        int n = nums.size();
+        
+        int prev2 = 0;
+        int prev = nums[0];
+        int curr;
+        
+        for(int i = 1; i < n; i++)
+        {
+            int l = nums[i];
+            
+            if(i > 1)
+                l += prev2;
+            
+            int r = prev;
+            
+            curr = max(l, r);
+            
+            prev2 = prev;
+            prev = curr;
+        }
+        
+        return prev;
+    }
+};
