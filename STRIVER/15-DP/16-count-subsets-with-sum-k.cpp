@@ -3,6 +3,9 @@ int rec(int i, int k, vector<int>& arr)
 {
 	if(i == 0)
 	{
+		if(k == 0 && arr[0] == 0)
+			return 2;
+		
 		if(arr[0] == k || k == 0)
 			return 1;
 
