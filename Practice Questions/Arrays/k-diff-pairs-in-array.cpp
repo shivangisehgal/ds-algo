@@ -1,3 +1,5 @@
+//TC: O(NlogN)
+//SC: O(1) (except answer vector)
 class Solution {
 public:
     
