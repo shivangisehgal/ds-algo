@@ -1,7 +1,7 @@
 //use a queue to first store the starting node
 //for each front element of the queue, push all its neighbours inside the queue if they havent been visited yet
 
- //TC: O(N) + O(2E) (queue would run n times, and the for loop will run in for a net of all neighbours (= 2E)
+ //TC: O(N) + O(2E) (queue would run n times, and the for loop will run in for a net of all neighbours, i.e., sum of all degrees (= 2E)
 //SC: O(N) 
 
 vector<int> bfsTraversal(int n, vector<vector<int>> &adj){
