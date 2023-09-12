@@ -72,6 +72,8 @@ public:
         vector<int> num(n);
         int fact = 1;
         string ans = "";
+
+        //calculate n! and store 1-n in nums 
         
         for(int i = 1; i <= n; i++)
         {
@@ -79,12 +81,14 @@ public:
             num[i - 1] = i;
         }
         
-        fact = fact / n;
+        //calculate (n - 1)! and make k zero-based
+        
+        fact = fact / n; //for each number, we will have (n - 1)! combinations starting from it.
         k = k - 1;
         
         while(true)
         {
-            int ind = k / fact;
+            int ind = k / fact; //calculate which (n - 1)! block does k lie in.
             
             ans += to_string(num[ind]);
             
