@@ -1,39 +1,27 @@
-//count number of components in graph
+//count number of components in graph in adjacency matrix
+
 class Solution {
 public:
     //basically, count number of components (separate graphs) in a graph
-    void dfs(int v, vector<vector<int>>& adjList, vector<int>& visited, vector<int>& componentDFS)
-{
-    if(!visited[v])
+    
+    void dfs(int v, vector<vector<int>>& adjMatrix, vector<int>& visited)
     {
-        visited[v] = 1;
-        componentDFS.push_back(v);
-        
-        //call DFS for each neighbour of v
-        for(auto neighbour : adjList[v])
-            dfs(neighbour, adjList, visited, componentDFS);
-    }
-}
-    int findCircleNum(vector<vector<int>>& isConnected) {
-        
-        //isConnected is the adjacency matrix
-        //perform traversal.
-        
-        
-        int n = isConnected.size();
-        vector<vector<int>> adjList(n);
-        
-        for(int i = 0; i < isConnected.size(); i++)
+        if(!visited[v])
         {
-            for(int j = 0; j < isConnected[0].size(); j++)
+            visited[v] = 1;
+            
+            //call DFS for each neighbour of v
+            for(int possibleNeighbour = 0; possibleNeighbour < adjMatrix.size(); possibleNeighbour++)
             {
-                if(isConnected[i][j] == 1 && i != j)
-                {
-                    adjList[i].push_back(j);
-                    adjList[j].push_back(i);
-                }
+                if(adjMatrix[v][possibleNeighbour] == 1)
+                    dfs(possibleNeighbour, adjMatrix, visited);
             }
         }
+    }
+    
+    int findCircleNum(vector<vector<int>>& isConnected) {
+        
+        int n = isConnected.size();
         
         vector<int> visited(n, 0);
         
@@ -44,8 +32,7 @@ public:
             if(!visited[i])
             {
                 compCount++;
-                vector<int> componentDFS; //stores the entire dfs of a graph
-                dfs(i, adjList, visited, componentDFS);
+                dfs(i, isConnected, visited);
             }
         }
         
