@@ -48,6 +48,9 @@ vector<int> shortestPathInDAG(int n, int m, vector<vector<int>> &edges)
     
     dist[source_node] = 0;
 
+    while(!topoSort.empty() && topoSort.top() != source_node)
+        topoSort.pop(); //because we can't reach these nodes FROM source node
+
     while(!topoSort.empty())
     {
         int node = topoSort.top();
