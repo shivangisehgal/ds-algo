@@ -29,7 +29,7 @@ vector<int> shortestPath(int n, vector<vector<int>>&edges, int src) {
         {
             if (dist[neighbour] == INT_MAX) 
             { 
-                dist[neighbour] = dist[node] + 1;
+                dist[neighbour] = dist[node] + 1; //ELSE, UPDATE AS dist[node] + wt // FOR WEIGHTED GRAPHS
                 q.push(neighbour);
             }
         }
