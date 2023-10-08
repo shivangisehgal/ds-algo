@@ -62,7 +62,7 @@ int shortestPathBinaryMatrix(vector<vector<int>> &matrix, pair<int, int> src, pa
 
 //BFS
 //Use a distance matrix
-//TC: O(M*N)
+//TC: O(4*M*N)
 #include<bits/stdc++.h>
 
 int shortestPathBinaryMatrix(vector<vector<int>> &matrix, pair<int, int> src, pair<int, int> dest)
