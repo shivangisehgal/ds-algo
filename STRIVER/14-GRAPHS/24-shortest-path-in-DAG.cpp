@@ -1,4 +1,6 @@
 //Refer handwritten notes
+//TC: O(N + E)
+//SC: O(N)
 
 #include<stack>
 
