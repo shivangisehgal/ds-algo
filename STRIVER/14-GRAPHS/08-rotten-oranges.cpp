@@ -1,3 +1,4 @@
+//DFS is a depth first approach, it will explore all paths, and it might not be an efficient way, when we have to determine the minimum time
 //use bfs, because that gives us level-wise, and only level-wise will give us the minimum time.
 //TC: O(N * M) + O(4 * O * M)
 //SC: O(N * M)
