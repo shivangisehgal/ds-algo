@@ -1,4 +1,7 @@
 //Refer handwritten notes
+//Intuition: we can find distance of a node from the source node, if we have already found the distance of all the nodes that precede this node.
+//topi=ological sort will ensure that we have already encountered the nodes that precede it.
+
 //TC: O(N + E)
 //SC: O(N)
 
