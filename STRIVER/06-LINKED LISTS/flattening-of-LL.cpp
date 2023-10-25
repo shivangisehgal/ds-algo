@@ -66,11 +66,11 @@ Node *flatten(Node *root)
         
     //get the second list
     
-    root->next = flatten(root->next);
+    Node* l1 = root;
+    Node* l2 = flatten(root->next);
     
     //merge the two lists
     
-    root = mergeSortedLists(root, root->next); //merge bottom-wise
-    
-    return root;
+    return mergeSortedLists(l1, l2); //merge bottom-wise
+
 }
