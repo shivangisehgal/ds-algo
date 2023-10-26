@@ -1,4 +1,4 @@
-// TC : O(N * N * M)
+// TC : O(N * N * M) | N = no. of lists given, M = max size of list
 //SC: O(1)
 // If we consider each vertical linked list of size O(M) in the worst case, then in this method we are merging two vertical sub-linked lists at a time.
 // Time is taken to merge two linked lists of size M = O(M+M) =O(2M)
