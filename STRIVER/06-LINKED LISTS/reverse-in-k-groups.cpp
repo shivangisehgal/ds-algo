@@ -57,3 +57,71 @@ public:
     }
 };
 
+//Iterative - Fraz
+//TC: O(kN)
+//SC: O(N/k)
+
+class Solution {
+public:
+    
+    void reverseFrom(ListNode* first, ListNode* last) {
+        
+        ListNode* prev = NULL;
+        ListNode* end_next;
+
+        if(last != NULL)
+            end_next = last->next;
+
+        prev = end_next;
+        
+        ListNode* curr = first;
+        ListNode* n;
+
+        while(curr != end_next) 
+        {
+            n = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = n;
+        }
+
+    }
+    
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        
+        if(head == NULL || head->next == NULL || k == 1)
+            return head;
+        
+        ListNode* dummy = new ListNode(-1);
+        dummy->next = head;
+        
+        ListNode* beforeStart = dummy;
+        ListNode* end = head;
+        
+        int i = 0;
+        
+        while(end != NULL)
+        {
+            i++;
+            
+            if(i % k == 0)
+            {
+                ListNode* start = beforeStart->next;
+                ListNode* afterEnd = end->next;
+                reverseFrom(start, end);
+                beforeStart->next = end;
+                start->next = afterEnd;
+                beforeStart = start;
+                end = afterEnd;
+            }
+            
+            else
+            {
+                end = end->next;
+            }
+        }
+        
+        return dummy->next;
+        
+    }
+};
