@@ -27,8 +27,9 @@ public:
 
 //OPTIMAL
 //Use min heap OF SIZE K for kth largest element, max heap OF SIZE K for kth smallest element
-//Intuition, a min heap of size k - after having traversed entire array would store the top k elements (coz popping happens of minimum elements)
-//hence, the minimum element in this min heap would be the kth largest element.
+//Intuition, a min heap of size k - 
+//Kth largest element = minimum of the largest K elements
+//Therefore minHeap of size K.
 
 
 //TC: O(NlogK) - insertion: N * O(log k), popping N * O(log k) => O(NlogK + NlogK)
