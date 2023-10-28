@@ -1,3 +1,11 @@
+//Build a max heap of the vector using heapfify 
+//Sort the heap vector using heap sort
+
+//This is 0-based indexing
+
+//TC: O(NlogN)
+//SC: O(1)
+
 class Solution {
 public:
     
