@@ -1,3 +1,9 @@
+//BRUTE
+//[Find smallest, erase, find second smallest, erase, push their sum] - do this while arr size > 1
+//TC: O(N*N)
+//SC: O(1)
+
+//OPTIMAL
 //TC: O(NlogN)
 //SC: O(N)
 
