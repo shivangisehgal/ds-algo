@@ -1,3 +1,6 @@
+//TC: O(N+NlogK+KlogK) = O(NlogN)
+//SC: O(K) + O(N)
+
 class Cmp
 {
     public:
