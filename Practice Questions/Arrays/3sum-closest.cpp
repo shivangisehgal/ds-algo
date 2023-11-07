@@ -1,13 +1,12 @@
-class Solution 
-{
+class Solution {
 public:
-    int threeSumClosest(vector<int>& nums, int target) 
-    {
+    int threeSumClosest(vector<int>& nums, int target) {
+        
         sort(nums.begin(), nums.end());
-        int n = nums.size();
-    
         
         int ans = nums[0] + nums[1] + nums[2];
+        
+        int n = nums.size();
         
         for(int i = 0; i < n - 2; i++)
         {
@@ -18,26 +17,15 @@ public:
             {
                 int sum = nums[i] + nums[low] + nums[high];
                 
-                if(sum == target)
+                if(abs(target - sum) < abs(target - ans))
                 {
-                    return target;
+                    ans = sum;
                 }
-                else if(sum < target)
-                {
-                    if(abs(sum - target) < abs(ans - target))
-                    {
-                        ans = sum;
-                    }
-                    low++;
-                }
-                else
-                {
-                    if(abs(sum - target) < abs(ans - target))
-                    {
-                        ans = sum;
-                    }
+                
+                if(sum > target)
                     high--;
-                }
+                else
+                    low++;
             }
         }
         
