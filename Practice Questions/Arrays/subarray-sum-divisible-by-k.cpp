@@ -11,11 +11,9 @@
 // SC: O(N)
 
         
- //prefix[j] - prefix[i] % k = 0 => (r1 - r2) % k = 0 => (prefix[j] % k - prefix[i] % k) % k = 0
- //(prefix[j] % k - prefix[i] % k) = C * k
- //prefix[j] % k = C * k +  prefix[i] % k
- //since, prefix[j] % k < k => C = 0
- //=> prefix[j] % k = prefix[i] % k
+//If S1 gives remainder x ---------- when divided by k
+//and S2 gives same remainder x ---------- when divided by k
+//then, (S1 - S2) will be divisible by k
         
 
 class Solution {
