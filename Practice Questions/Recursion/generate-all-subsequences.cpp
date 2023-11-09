@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    void rec(vector<int> v, int i, int n, vector<vector<int>>& ans, vector<int>& nums)
+    void rec(vector<int>& v, int i, int n, vector<vector<int>>& ans, vector<int>& nums)
     {
         if(i == n)
         {
