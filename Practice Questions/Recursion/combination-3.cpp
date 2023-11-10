@@ -1,38 +1,38 @@
 class Solution {
-    
-    void rec(vector<int> v, int i, int n, int target, vector<vector<int>>& ans)
+public:
+    void rec(int i, int k, int n, vector<int> v, vector<vector<int>>& ans)
     {
-               
-        if(i > 10)
-            return;
-        
-        if(v.size() == n)
+        //base case
+        if(k == 0 && n == 0)
         {
-            if(target == 0)
-            {
-                ans.push_back(v);
-                return;
-            }
+            ans.push_back(v);
+            return;
         }
         
-        //pick
-        if(target >= i)
+        if(i == 10 || k == 0 || n == 0)
+            return;
+        
+        
+        //take
+        if(i <= n)
         {
             v.push_back(i);
-            rec(v, i + 1, n, target - i, ans);
+            rec(i + 1, k - 1, n - i, v, ans);
             v.pop_back();
         }
         
-        //not pick
-        rec(v, i + 1, n, target, ans);
+        //not take
+        rec(i + 1, k, n, v, ans);
     }
     
-public:
+    
+    
+    
     vector<vector<int>> combinationSum3(int k, int n) {
         
+        vector<int> v;
         vector<vector<int>> ans;
-        rec({}, 1, k, n, ans);
+        rec(1, k, n, v, ans);
         return ans;
     }
-    
 };
