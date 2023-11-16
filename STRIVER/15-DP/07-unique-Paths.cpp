@@ -1,4 +1,7 @@
 //memo
+//TC: O(M*N)
+//SC: O(M - 1 + N - 1) + [O(M*N) : Dp array]
+
 class Solution {
 public:
     int rec(int m, int n, vector<vector<int>>& dp)
@@ -24,6 +27,9 @@ public:
 };
 
 //tab
+////TC: O(M*N)
+//SC: [O(M*N) : Dp array]
+
 class Solution {
 public:
     int uniquePaths(int m, int n) {
@@ -49,6 +55,10 @@ public:
 };
 
 //space opt
+//tab
+////TC: O(M*N)
+//SC: O(N)
+
 class Solution {
 public:
     int rec(int m, int n, vector<vector<int>>& dp)
