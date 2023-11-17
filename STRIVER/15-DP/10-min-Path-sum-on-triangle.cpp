@@ -75,10 +75,10 @@ public:
         
         int n = triangle.size();
         
-        vector<int> prevRow(n, 0);
+        vector<int> nextRow(n, 0);
     
         for(int j = n - 1; j >= 0; j--)
-            prevRow[j] = triangle[n - 1][j];
+            nextRow[j] = triangle[n - 1][j];
         
         for(int i = n - 2; i >= 0; i--)
         {
@@ -89,15 +89,15 @@ public:
                 int down = 0;
                 int down_right = 0;
                 
-                down = triangle[i][j] + prevRow[j];
-                down_right = triangle[i][j] + prevRow[j + 1];
+                down = triangle[i][j] + nextRow[j];
+                down_right = triangle[i][j] + nextRow[j + 1];
                 
                 currRow[j] = min(down, down_right);
             }
             
-            prevRow = currRow;
+            nextRow = currRow;
         }
         
-        return prevRow[0];
+        return nextRow[0];
     }
 };
