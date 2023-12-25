@@ -1,3 +1,5 @@
+//3-PARTITION PARTIAL QUICK SORT
+
 //Worst case, assume that the pivot is always the greatest value
 // O(N + N - 1 + N - 2 + N - 3 + ....) = O(N^2)
 
