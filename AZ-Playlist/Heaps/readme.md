@@ -10,7 +10,7 @@
 
 **Why Heap over arrays / linked lists?**
 
-* Fast insert and delete of min/max → **O(log N)** using heapify.
+> * **Fast insert and delete of min/max → **O(log N)** using heapify.**
 * Arrays:
 
   * Unsorted: insert fast but delete/search slow.
@@ -22,7 +22,7 @@
 
 ### Intro to Heap
 
- //// Complete Binary Tree: a. perfect BT, b. almost complete BT.
+> Complete Binary Tree: a. perfect BT (all levels completely filled), b. almost complete BT (all levels except possibly last and second last completely filled from L to R).
 
 * Tree-based data structure
 * **Complete Binary Tree**
@@ -157,11 +157,11 @@ h = floor(log2(N))
 
 ### Leaf and Internal Node Index Ranges (0-based)
 
-
+```
 * Total nodes = N
 * Leaf nodes index range     = floor(N/2)  to  N-1
 * Internal nodes index range = 0 to floor(N/2) - 1
-
+```
 
 ```
 Index:   0   1   2   3   4   5   6
@@ -195,24 +195,39 @@ Internal index range = 0 to 2   (nodes 50, 30, 20)
 
 ---
 
-### Heapify Algorithm O(logN)
+### Heapify Algorithm | TC: O(logN), SC: O(logN) {recursive space} | aka PERCOLATE DOWN
+
+> Heapify Algorithm: Assuming that left subtree and right subtree are heaps, correctly position current node ans recursively heapify the child.
 
 ---
 
-### Build Heap Algorithm O(N)
+### Heap Implementation (Max heap)
+#### Extract Max (Pop) / Find + Delete Max | TC: O(logN), SC: O(logN)
+> swap (root, last leaf) -> percolate down (root) 
+#### Insert Key | TC: O(logN), SC: O(1)
+> insert at end, percolate up (i)
+#### Get Max TC: O(1), SC: O(1)
+> heap[0]
+#### Increase a value | TC: O(logN), SC: O(1)
+> heap[i] += val -> since increased and is max heap, so chances of going up: percolate up (i)
+#### Decrease a value | TC: O(logN), SC: O(logN)
+> heap[i] -= val -> since decreases and is max heap, so chances of going down: percolate down (i)
 
 ---
 
-### Heap Methods Implementation (Max heap)
-#### Extract Max (Pop) / Find + Delete Max
-#### Insert Max
-#### Increase a value
-#### Decrease a value
+### Build Heap Algorithm | TC: O(N) [IMPORTANT: NOT O(NlogN)], SC: O(logN)
+
+> We know that ```floor(N / 2) to N - 1``` indices should store leaf nodes. So assume that currently they are the leaves, so in order to build subtrees with these as leaves we need to start in reverse from ```last internal node``` index, and then keep ```heapifying```, this was automatically, subtrees -> then trees will form according to our heap property.
+
+> start from last internal node to root ``` i : floor(N / 2) - 1 TO 0 ``` -> percolate down (i)
+---
+
+### Heap Sort | TC: O(N * logN)
+
+> Heap Sort Alogrithm: Sort array elements with help of heap DS.
+
+> From array -> build heap ```TC: O(N)``` -> keep extracting maximum for N - 1 indices ```TC: O(N * logN)``` => TC: O(N * logN)
 
 ---
 
-### Heap Sort
-
----
-
-## Heap Implementation (HEAP_PUSH, HEAP_POP, HEAP_TOP)
+### Quick Select Algorithm
