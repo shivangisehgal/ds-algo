@@ -231,3 +231,190 @@ Internal index range = 0 to 2   (nodes 50, 30, 20)
 ---
 
 ### Quick Select Algorithm
+
+---
+
+# Priority Queue (C++) – Quick Notes
+
+Default: max-heap
+
+```cpp
+priority_queue<int> pq;
+```
+
+Min-heap:
+
+```cpp
+priority_queue<int, vector<int>, greater<int>> minH;
+```
+
+Time complexities:
+
+* push: O(log N)
+* pop: O(log N)
+* top: O(1)
+
+Backed by a binary heap stored in an array.
+
+---
+
+## Custom Comparator Patterns in C++
+
+### 1. Struct comparator (most common)
+
+```cpp
+struct Comp {
+    bool operator()(int a, int b) const {
+        return a > b;  // min-heap
+    }
+};
+
+priority_queue<int, vector<int>, Comp> pq;
+```
+
+### 2. Comparator for objects
+
+```cpp
+struct Node {
+    int val;
+    int freq;
+};
+
+struct ByFreq {
+    bool operator()(const Node &a, const Node &b) const {
+        return a.freq > b.freq;  // min-heap on freq
+    }
+};
+
+priority_queue<Node, vector<Node>, ByFreq> pq;
+```
+
+### 3. Comparator for max-heap on objects
+
+```cpp
+struct ByValueMax {
+    bool operator()(const Node &a, const Node &b) const {
+        return a.val < b.val;  // max-heap on val
+    }
+};
+```
+
+### 4. Lambda comparator
+
+```cpp
+auto comp = [](int a, int b) { return a > b; };
+priority_queue<int, vector<int>, decltype(comp)> pq(comp);
+```
+
+### 5. Multiple-field comparator
+
+```cpp
+struct Multi {
+    bool operator()(const Node &a, const Node &b) const {
+        if (a.freq == b.freq)
+            return a.val > b.val;  // tie-breaker
+        return a.freq < b.freq;     // primary key
+    }
+};
+```
+
+---
+
+# Priority Queue vs multiset vs set (C++)
+
+| Feature                   | priority_queue           | multiset                                | set                       |
+| ------------------------- | ------------------------ | --------------------------------------- | ------------------------- |
+| Underlying DS             | heap                     | balanced BST (red-black tree)           | balanced BST              |
+| Sorted order              | no (only top guaranteed) | yes (full sorted)                       | yes (unique keys, sorted) |
+| Iteration in sorted order | no                       | yes                                     | yes                       |
+| Duplicate elements        | yes                      | yes                                     | no                        |
+| Custom comparator         | yes                      | yes                                     | yes                       |
+| Access min/max            | O(1)                     | O(log N)                                | O(log N)                  |
+| Insert                    | O(log N)                 | O(log N)                                | O(log N)                  |
+| Remove                    | O(log N)                 | O(log N)                                | O(log N)                  |
+| Best for                  | Top-K, streaming min/max | maintaining sorted data with duplicates | sorted unique set         |
+
+Notes:
+
+* Use `priority_queue` for repeated top() and push/pop operations.
+* Use `multiset` when you need sorted iteration or erase arbitrary elements.
+* `priority_queue` cannot erase arbitrary elements efficiently (no iterator access).
+
+---
+
+# Priority Queue (Java) – Quick Notes
+
+Java `PriorityQueue` is a min-heap by default.
+
+```java
+PriorityQueue<Integer> pq = new PriorityQueue<>();
+```
+
+Max-heap:
+
+```java
+PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+```
+
+Time complexities:
+add: O(log N)
+poll: O(log N)
+peek: O(1)
+
+Not thread-safe. Not sorted when iterating.
+
+---
+
+## Custom Comparators in Java
+
+### 1. Lambda comparator
+
+```java
+PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> a - b);  // min-heap
+```
+
+### 2. Max-heap
+
+```java
+PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
+```
+
+### 3. Comparator for objects
+
+```java
+class Node {
+    int val;
+    int freq;
+}
+
+PriorityQueue<Node> pq =
+    new PriorityQueue<>((a, b) -> a.freq - b.freq);
+```
+
+### 4. Multi-level comparator
+
+```java
+PriorityQueue<Node> pq = new PriorityQueue<>((a, b) -> {
+    if (a.freq == b.freq)
+        return a.val - b.val;
+    return a.freq - b.freq;
+});
+```
+
+---
+
+# PQ vs TreeSet / TreeMap (Java)
+
+| Feature          | PriorityQueue               | TreeSet / TreeMap                       |
+| ---------------- | --------------------------- | --------------------------------------- |
+| Underlying DS    | heap                        | red-black tree                          |
+| Sorted iteration | no                          | yes                                     |
+| Access min/max   | O(1)                        | O(log N)                                |
+| Arbitrary remove | no efficient way            | O(log N)                                |
+| Duplicate keys   | allowed                     | TreeSet: no, TreeMap: no duplicate keys |
+| Best for         | repeated min/max extraction | maintaining sorted data                 |
+
+Notes:
+
+* Use PQ for top-K, Dijkstra, scheduling.
+* Use TreeSet/TreeMap when full order matters and you need to traverse in sorted order.
