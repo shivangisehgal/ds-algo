@@ -228,3 +228,40 @@ public:
         return ans;
     }
 };
+
+// Stack simulates this:
+
+// First time → expand children
+
+// Second time → print node
+
+
+class Solution {
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> ans;
+        if (root == NULL) return ans;
+
+        stack<pair<TreeNode*, bool>> st;
+        st.push({root, false});
+
+        while (!st.empty()) {
+            auto [node, visited] = st.top();
+            st.pop();
+
+            if (node == NULL) continue;
+
+            if (visited) {
+                // Both children already processed
+                ans.push_back(node->val);
+            } else {
+                // Postorder: left → right → root
+                st.push({node, true});        // process root later
+                st.push({node->right, false});
+                st.push({node->left, false});
+            }
+        }
+        return ans;
+    }
+};
+
