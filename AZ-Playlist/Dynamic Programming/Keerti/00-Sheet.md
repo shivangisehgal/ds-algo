@@ -6,7 +6,7 @@
 
 | # | Done | ⭐ | Problem | Link | Code |
 |---|------|----|--------|------|------|
-| 1 | [ ] | [ ] | Fibonacci Number | https://leetcode.com/problems/fibonacci-number/ |  |
+| 1 | ✅ | [ ] | Fibonacci Number | https://leetcode.com/problems/fibonacci-number/ |  |
 | 2 | [ ] | [ ] | N-th Tribonacci Number | https://leetcode.com/problems/n-th-tribonacci-number/ |  |
 | 3 | [ ] | [ ] | Climbing Stairs | https://leetcode.com/problems/climbing-stairs/ |  |
 | 4 | [ ] | [ ] | Min Cost Climbing Stairs | https://leetcode.com/problems/min-cost-climbing-stairs/ |  |
@@ -28,8 +28,8 @@
 
 | # | Done | ⭐ | Problem | Link | Code |
 |---|------|----|--------|------|------|
-| 16 | [ ] | [ ] | Longest Common Subsequence | https://leetcode.com/problems/longest-common-subsequence/ |  |
-| 17 | [ ] | [ ] | Edit Distance | https://leetcode.com/problems/edit-distance/ |  |
+| 16 | ✅  | [ ] | Longest Common Subsequence | https://leetcode.com/problems/longest-common-subsequence/ |  |
+| 17 | ✅  | [ ] | Edit Distance | https://leetcode.com/problems/edit-distance/ |  |
 | 18 | [ ] | [ ] | Wildcard Matching | https://leetcode.com/problems/wildcard-matching/ |  |
 | 19 | [ ] | [ ] | Regular Expression Matching | https://leetcode.com/problems/regular-expression-matching/ |  |
 | 20 | [ ] | [ ] | Shortest Common Supersequence | https://leetcode.com/problems/shortest-common-supersequence/ |  |
